@@ -21,8 +21,6 @@ jobs:
           cache: 'maven'
       - name: Build the project
         run: mvn package
-      - name: List all the images
-        run: images ps -a
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -37,6 +35,8 @@ jobs:
           docker build -t myapp:latest .
           docker images
           docker run -dt --name web1 myapp:latest
+      - name: List all the images
+        run: docker ps -a
       
 
           

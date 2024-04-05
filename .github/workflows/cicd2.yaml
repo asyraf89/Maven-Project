@@ -35,6 +35,8 @@ jobs:
           docker build -t myapp:latest .
           docker images
           docker run -dt --name web1 myapp:latest
+      - name: List all the images
+        run: images ps -a
 
           
           

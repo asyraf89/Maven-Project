@@ -25,13 +25,12 @@ jobs:
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-    
       - name: Docker image build
         run: |
           docker build -t myapp:latest .
           docker images
       - name: test the image by creating the container
-        run: 
+        run: |
           docker run -dt --name web1 myapp:latest
           docker ps -a
       - name: Login to Dockerhub
